@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Checker</title>
+    <style>
+        body {
+            background-color: maroon;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: white;
+            color: maroon;
+            cursor: pointer;
+        }
+        input {
+            margin-top: 20px;
+            padding: 10px;
+            width: 300px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <button>File</button>
+        <button>Edit</button>
+        <button>Run</button>
+        <button>About Us</button>
+    </div>
+    <h1>Scientific Number Checker</h1>
+    <input type="text" id="inputString" placeholder="Masukkan angka...">
+    <button onclick="checkNumber()">Cek</button>
+    <div class="result" id="result"></div>
+    
+    <script>
+        function checkNumber() {
+            const input = document.getElementById("inputString").value;
+            const regex = /^-?\d+(\.\d+)?([eE][-+]?\d+)?$/;
+            const result = regex.test(input) ? "Yes, it is a number" : "No, it is not a number";
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>
